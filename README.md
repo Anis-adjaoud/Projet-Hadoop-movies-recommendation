@@ -3,11 +3,8 @@
 Notre projet vise à concevoir un système intelligent de recommandation de films, combinant analyse de données massives, machine learning, et visualisation interactive, tout ça sur graçe à un cluster Hadoop configuré.
 Il s'appuie sur un fichier (movie_rank.csv) issu d’IMDb contenant les films, leurs notes, genres, durées et votes. Exemple de ligne :
 
---------------------------------------------------------------------------------------------------------------------------------------------
 Column1 tconst    titleType primaryTitle originalTitle isAdult startYear runtimeMinutes genres                    averageRating    numVotes
---------------------------------------------------------------------------------------------------------------------------------------------
 141081	tt0145487 movie	    Spider-Man   Spider-Man    0	   2002	     121        	Action,Adventure,Sci-Fi	  7.4              911741.0
---------------------------------------------------------------------------------------------------------------------------------------------
 
 L’objectif est double :
 
@@ -29,12 +26,12 @@ Le choix de ce thème s’explique par plusieurs raisons :
 ## Installations
 
 On a commencé par monter un cluster Hadoop sur docker, avec un namenode, deux datanodes pour la réplication des données, et un jupyter avec spark installé.
-les fichiers docker-compose.yaml et config sont utilisés pour cette installation.
+Les fichiers docker-compose.yaml et config dans ce repo sont utilisés pour cette installation.
 Ensuite, on écrit le fichier de notre dataset sur HDFS, afin de faire des traitements Spark par la suite : 
-    ==> docker cp .\Dataset\movie_rank.csv projet_hadoop-namenode-1:/tmp/movie_rank.csv
-    ==> hdfs dfs -mkdir -p /user/data/
-    ==> hdfs dfs -put /tmp/movie_rank.csv /user/data/
-En faisant hdfs dfs -ls -R /, on voit que notre fichier est bien présent sur HDFS.
+-   docker cp .\Dataset\movie_rank.csv projet_hadoop-namenode-1:/tmp/movie_rank.csv
+-   hdfs dfs -mkdir -p /user/data/
+-   hdfs dfs -put /tmp/movie_rank.csv /user/data/
+-   En faisant hdfs dfs -ls -R /, on voit que notre fichier est bien présent sur HDFS.
 
 Maintenant que notre architecture est préte, on accède au serveur jupyter sur : http://127.0.0.1:8888/lab, qui nous permet de créer des fichiers python, jupyter, ouvrir un terminal...
 
@@ -142,5 +139,4 @@ movies_recommendation.ipy (Cell 1)
 
 # Lancer l’interface de visualisation Streamlit :
 streamlit run dataViz.py
-
 ```
