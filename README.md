@@ -1,10 +1,11 @@
 # Système de Recommandation de Films
 
-Notre projet vise à concevoir un système intelligent de recommandation de films, combinant analyse de données massives, machine learning, et visualisation interactive, tout ça sur graçe à un cluster Hadoop configuré.
+Notre projet vise à concevoir un système intelligent de recommandation de films, combinant analyse de données massives, machine learning, et visualisation interactive, tout ça sur grâce à un cluster Hadoop configuré.
 Il s'appuie sur un fichier (movie_rank.csv) issu d’IMDb contenant les films, leurs notes, genres, durées et votes. Exemple de ligne :
-
+---
 Column1 tconst    titleType primaryTitle originalTitle isAdult startYear runtimeMinutes genres                    averageRating    numVotes
 141081	tt0145487 movie	    Spider-Man   Spider-Man    0	   2002	     121        	Action,Adventure,Sci-Fi	  7.4              911741.0
+---
 
 L’objectif est double :
 
@@ -134,9 +135,8 @@ Maintenant que notre architecture est préte, on accède au serveur jupyter sur 
 
 ## Exécution du projet
 
-# Lancer le système de recommandation intelligent (jupyter) :
+### Lancer le système de recommandation intelligent (jupyter) :
 movies_recommendation.ipy (Cell 1)
 
-# Lancer l’interface de visualisation Streamlit :
+### Lancer l’interface de visualisation Streamlit :
 streamlit run dataViz.py
-```
